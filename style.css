@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+/* Base styles and animations */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #F0F0F0;
+    --text-color: #333;
+    --transition-timing: 0.3s;
+}
+
+.container{
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    
+}
+
+.form-label, .form-control, .btn, .text-center{
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    min-height: 100%;
+    color: var(--text-color);
+    overflow-x: hidden;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    
+}
+
+.logo{color: red;}
+
+/* Form and input styling */
+.form-control, .form-select {
+    transition: all var(--transition-timing) ease;
+    border: 1px solid transparent !important;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2) !important;
+    border-color: var(--primary-color) !important;
+    background: white !important;
+}
+
+.text-indent {
+    text-indent: 1rem;
+}
+
+.password__icon {
+    position: absolute;
+    right: 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: color var(--transition-timing) ease;
+}
+
+.password__icon:hover {
+    color: var(--primary-color) !important;
+}
+
+.bg-grey-light {
+    background: var(--secondary-color);
+}
+
+/* Button styling */
+.btn-outline-dark {
+    transition: all var(--transition-timing) ease !important;
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-1px);
+}
+
+/* Form containers with sliding animation */
+.register__form {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin-left: -100%;
+    opacity: 0;
+    transition: margin 1s, opacity 0.5s;
+    z-index: 1;
+}
+
+.register__form.active {
+    margin-left: 0%;
+    opacity: 1;
+}
+
+.login__form {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin-left: -100%;
+    opacity: 0;
+    transition: margin 1s, opacity 0.5s;
+    z-index: 1;
+}
+
+.login__form.active {
+    opacity: 1;
+    margin-left: 0%;
+}
+
+/* Background circle */
+.ball {
+    overflow: hidden;
+    transition: all 1s;
+    opacity: 0.8;
+    animation: fadein 1s ease-out 0.5s forwards;
+    width: 500px;
+    height: 500px;
+    transition: margin 1s;
+    
+}
+
+@media (min-width: 1024px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .ball {
+        width: 600px;
+        height: 600px;
+    }
+    
+    .ball.login {
+        margin-left: 50%;
+        margin-top: 2%;
+    }
+    
+    .ball.register {
+        margin-left: 14%;
+        margin-top: 2%;
+    }
+    
+    .bounce {
+        animation: bounce 3s infinite alternate cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .register__form.active {
+        margin-left: 10% !important;
+        opacity: 1;
+    }
+    
+    .login__form.active {
+        opacity: 1;
+        margin-left: 10% !important;
+    }
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-25px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container .col-12.p-5 {
+        padding: 2rem !important;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    .ball {
+        display: none;
+    }
+}
+
+/* Form validation styling */
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: none !important;
+}
+
+/* Fade-in animation for dynamic fields */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Social media buttons */
+.btn-outline-dark.rounded-circle {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark.rounded-circle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
